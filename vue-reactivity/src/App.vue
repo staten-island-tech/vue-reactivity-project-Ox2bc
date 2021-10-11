@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">{{ProductPage}}</router-link> |
+      <router-link to="/about"><img class="cart-logo" src="./assets/shopping-cart.png" alt=""></router-link>
+
     </div>
     <router-view/>
   </div>
@@ -29,4 +30,19 @@
     }
   }
 }
+
+.cart-logo{
+  height: 3vh;
+  width: 3vh;
+}
 </style>
+
+<script>
+export default {
+  el: "#app",
+  data() {
+    return({
+      ProductPage: "Product Page",
+  });
+}}
+</script>

@@ -1,12 +1,63 @@
 <template>
   <div class="about">
-    <h1 class="Heading">This is an about page</h1>
+    <div class="wishlist">
+      <div class="wish-title">
+        Wishlist
+      </div>
+      <input class="wish-input" v-model="newItem"  v-on:keyup.enter ="addTask"  placeholder="Wishlist">
+      <ul class="wishlist-ul">
+        <li class="wishlist-li" v-for="item in items" :key="item"> ❖ {{ item }} </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 
 <style scoped lang="scss">
-.Heading{
-  color: red;
+.wishlist{
+  height: 85vh;
+}
+
+.wish-title{
+  height: 5vh;
+  font-size: 5vh;
+  font-weight: bold;
+  margin: 3vh;
+}
+
+.wishlist-ul{
+  list-style: none;
+}
+
+.wish-input{
+  width: 50%;
+  padding: 10px;
+  margin: 1vh;
+  border: none;
+  border-bottom: 2px solid #42b983;
+}
+
+.wishlist-li{
+  font-size: 2.5vh;
 }
 </style>
+
+
+<script>
+export default {
+  data(){
+    return{
+      items: [],
+      newItem: '',
+    }
+  },
+  methods:{
+    addTask() {
+      if (this.newItem.length > 0) {
+      this.items.push(this.newItem)
+      this.newItem = '';
+      }
+    }
+  }
+}
+</script>

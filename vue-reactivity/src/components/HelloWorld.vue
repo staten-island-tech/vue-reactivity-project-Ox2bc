@@ -3,16 +3,20 @@
     <js msg="Welcome to Your Vue.js App"/>
     <div class="product-page">
       <div class="airpods">
-        <img class="airpods-image" src="../assets/airpods-1.png" alt="">
+        <img v-if="airpodsOpacity = false" :style="{opacity: fullOpacity}" class="airpods-image" src="../assets/airpods-1.png" alt="">
+        <img v-else v-bind:style="{opacity: halfOpacity}" class="airpods-image" src="../assets/airpods-1.png" alt="">
       </div>
       <div class="macbook">
-        <img class="macbook-image" src="../assets/macbook-1.png" alt="">
+        <img v-if="macbookOpacity = false" :style="{opacity: fullOpacity}" class="macbook-image" src="../assets/macbook-1.png" alt="">
+        <img v-else v-bind:style="{opacity: halfOpacity}" class="macbook-image" src="../assets/macbook-1.png" alt="">
       </div>
       <div class="iphone">
-        <img class="iphone-image" src="../assets/iphone-1.png" alt="">
+        <img v-if="iphoneOpacity = false" :style="{opacity: fullOpacity}" class="iphone-image" src="../assets/iphone-1.png" alt="">
+        <img v-else v-bind:style="{opacity: halfOpacity}" class="iphone-image" src="../assets/iphone-1.png" alt="">
       </div>
       <div class="surface">
-        <img class="surface-image" src="../assets/surface-1.png" alt="">
+        <img v-if="surfaceOpacity = false" :style="{opacity: fullOpacity}" class="surface-image" src="../assets/surface-1.png" alt="">
+        <img v-else v-bind:style="{opacity: halfOpacity}" class="surface-image" src="../assets/surface-1.png" alt="">
       </div>
     </div>
     <div class="stock-amount">
@@ -58,17 +62,29 @@
       </div>
     </div>
     <div class="purchase-buttons">
-      <button v-show="airpodsStock > 0" v-on:click="airpodsStock -= 1" class="airpods-button">
+      <button v-if="airpodsStock > 0" v-on:click="airpodsStock -= 1" class="airpods-button">
         Buy Now
       </button>
-      <button v-show="macbookStock > 0" v-on:click="macbookStock -= 1" class="macbook-button">
+      <button v-else v-on:click="airpodsStock -= 1" disabled="true" class="airpods-button-disabled">
+        Sorry
+      </button>
+      <button v-if="macbookStock > 0" v-on:click="macbookStock -= 1" class="macbook-button">
         Buy Now
       </button>
-      <button v-show="iphoneStock > 0" v-on:click="iphoneStock -= 1" class="iphone-button">
+      <button v-else v-on:click="macbookStock -= 1" disabled="true" class="macbook-button-disabled">
+        Sorry
+      </button>
+      <button v-if="iphoneStock > 0" v-on:click="iphoneStock -= 1" class="iphone-button">
         Buy Now
       </button>
-      <button v-show="surfaceStock > 0" v-on:click="surfaceStock -= 1" class="surface-button">
+      <button v-else v-on:click="iphoneStock -= 1" disabled="true" class="iphone-button-disabled">
+        Sorry
+      </button>
+      <button v-if="surfaceStock > 0" v-on:click="surfaceStock -= 1" class="surface-button">
         Buy Now
+      </button>
+      <button v-else v-on:click="surfaceStock -= 1" disabled="true" class="surface-button-disabled">
+        Sorry
       </button>
     </div>
   </div>
@@ -83,10 +99,50 @@ export default {
   data() {
     return({
       airpodsStock: 2,
-      macbookStock: 5,
+      macbookStock: 9,
       iphoneStock: 4,
       surfaceStock: 7,
-    });
+      airpodsOpacity: false,
+      macbookOpacity: false,
+      iphoneOpacity: false,
+      surfaceOpacity: false,
+      halfOpacity: "50%",
+      fullOpacity: "100",
+    })
+  },
+  methods:{
+    opacityAirpods(){
+      if(this.airpodsStock > 0){
+        this.airpodsOpacity = false;
+      }
+      else{
+        this.airpodsOpacity = true;
+      }
+    },
+    opacityMacbook(){
+      if(this.macbookStock > 0){
+        this.macbookOpacity = false;
+      }
+      else{
+        this.macbookOpacity = true;
+      }
+    },
+    opacityIphone(){
+      if(this.iphoneStock > 0){
+        this.iphoneOpacity = false;
+      }
+      else{
+        this.iphoneOpacity = true;
+      }
+    },
+    opacitySurface(){
+      if(this.surfaceStock > 0){
+        this.surfaceOpacity = false;
+      }
+      else{
+        this.surfaceOpacity = true;
+      }
+    }
   }
 }
 </script>
@@ -172,23 +228,75 @@ a {
 }
 
 .airpods-button{
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
-  background: #e0e0e0;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
 }
 
 .macbook-button{
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
-  background: #e0e0e0;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
 }
 
 .iphone-button{
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
-  background: #e0e0e0;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
 }
 
 .surface-button{
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
-  background: #e0e0e0;
+  color: white;
+  background: #3c94c3;
+  font-weight: bolder;
+}
+
+.airpods-button-disabled{
+  height: 7.5vh;
+  width: 7.5vw;
+  border-radius: 28px;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
+}
+
+.macbook-button-disabled{
+  height: 7.5vh;
+  width: 7.5vw;
+  border-radius: 28px;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
+}
+
+.iphone-button-disabled{
+  height: 7.5vh;
+  width: 7.5vw;
+  border-radius: 28px;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
+}
+
+.surface-button-disabled {
+  height: 7.5vh;
+  width: 7.5vw;
+  border-radius: 28px;
+  color: white;
+  background: #3c94c3;
+  font-weight: 700;
 }
 </style>
 

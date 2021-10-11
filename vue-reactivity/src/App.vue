@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">{{ProductPage}}</router-link> |
-      <router-link to="/about"><img class="cart-logo" src="./assets/shopping-cart.png" alt=""></router-link>
+      <router-link to="/about">{{ Wishlist }}</router-link>
 
     </div>
     <router-view/>
@@ -43,6 +43,7 @@ export default {
   data() {
     return({
       ProductPage: "Product Page",
+      Wishlist: "Wishlist"
   });
 }}
 </script>

@@ -1,22 +1,69 @@
 <template>
-  <div class="hello">
-    <js msg="Welcome to Your Vue.js App"/>
+  <section class="hello">
     <div class="product-page">
       <div class="airpods">
-        <img v-if="airpodsOpacity = false" :style="{opacity: fullOpacity}" class="airpods-image" src="../assets/airpods-1.png" alt="">
-        <img v-else v-bind:style="{opacity: halfOpacity}" class="airpods-image" src="../assets/airpods-1.png" alt="">
+        <img
+          v-if="(airpodsOpacity = false)"
+          :style="{ opacity: fullOpacity }"
+          class="airpods-image"
+          src="../assets/airpods-1.png"
+          alt=""
+        />
+        <img
+          v-else
+          v-bind:style="{ opacity: halfOpacity }"
+          class="airpods-image"
+          src="../assets/airpods-1.png"
+          alt=""
+        />
       </div>
       <div class="macbook">
-        <img v-if="macbookOpacity = false" :style="{opacity: fullOpacity}" class="macbook-image" src="../assets/macbook-1.png" alt="">
-        <img v-else v-bind:style="{opacity: halfOpacity}" class="macbook-image" src="../assets/macbook-1.png" alt="">
+        <img
+          v-if="(macbookOpacity = false)"
+          :style="{ opacity: fullOpacity }"
+          class="macbook-image"
+          src="../assets/macbook-1.png"
+          alt=""
+        />
+        <img
+          v-else
+          v-bind:style="{ opacity: halfOpacity }"
+          class="macbook-image"
+          src="../assets/macbook-1.png"
+          alt=""
+        />
       </div>
       <div class="iphone">
-        <img v-if="iphoneOpacity = false" :style="{opacity: fullOpacity}" class="iphone-image" src="../assets/iphone-1.png" alt="">
-        <img v-else v-bind:style="{opacity: halfOpacity}" class="iphone-image" src="../assets/iphone-1.png" alt="">
+        <img
+          v-if="(iphoneOpacity = false)"
+          :style="{ opacity: fullOpacity }"
+          class="iphone-image"
+          src="../assets/iphone-1.png"
+          alt=""
+        />
+        <img
+          v-else
+          v-bind:style="{ opacity: halfOpacity }"
+          class="iphone-image"
+          src="../assets/iphone-1.png"
+          alt=""
+        />
       </div>
       <div class="surface">
-        <img v-if="surfaceOpacity = false" :style="{opacity: fullOpacity}" class="surface-image" src="../assets/surface-1.png" alt="">
-        <img v-else v-bind:style="{opacity: halfOpacity}" class="surface-image" src="../assets/surface-1.png" alt="">
+        <img
+          v-if="(surfaceOpacity = false)"
+          :style="{ opacity: fullOpacity }"
+          class="surface-image"
+          src="../assets/surface-1.png"
+          alt=""
+        />
+        <img
+          v-else
+          v-bind:style="{ opacity: halfOpacity }"
+          class="surface-image"
+          src="../assets/surface-1.png"
+          alt=""
+        />
       </div>
     </div>
     <div class="stock-amount">
@@ -24,80 +71,108 @@
       <div v-if="airpodsStock > 5" class="airpods-stock">
         Running Low! Only {{ airpodsStock }} left!
       </div>
-      <div v-else-if="airpodsStock <= 5 && airpodsStock >0">
+      <div v-else-if="airpodsStock <= 5 && airpodsStock > 0">
         Hurry Up! Only {{ airpodsStock }} left!
       </div>
-      <div v-else>
-        Sorry, Airpods are Sold Out
-      </div>
+      <div v-else>Sorry, Airpods are Sold Out</div>
       <!-- Macbook -->
       <div v-if="macbookStock > 5" class="macbook-stock">
         Running Low! Only {{ macbookStock }} left!
       </div>
-      <div v-else-if="macbookStock <= 5 && macbookStock >0">
+      <div v-else-if="macbookStock <= 5 && macbookStock > 0">
         Hurry Up! Only {{ macbookStock }} left!
       </div>
-      <div v-else>
-        Sorry, Macbook is Sold Out
-      </div>
+      <div v-else>Sorry, Macbook is Sold Out</div>
       <!-- iPhone -->
       <div v-if="iphoneStock > 5" class="iphone-stock">
         Running Low! Only {{ iphoneStock }} left!
       </div>
-      <div v-else-if="iphoneStock <= 5 && iphoneStock >0">
+      <div v-else-if="iphoneStock <= 5 && iphoneStock > 0">
         Hurry Up! Only {{ iphoneStock }} left!
       </div>
-      <div v-else>
-        Sorry, iPhone is Sold Out
-      </div>
+      <div v-else>Sorry, iPhone is Sold Out</div>
       <!-- Surface -->
       <div v-if="surfaceStock > 5" class="surface-stock">
         Running Low! Only {{ surfaceStock }} left!
       </div>
-      <div v-else-if="surfaceStock <= 5 && surfaceStock >0">
+      <div v-else-if="surfaceStock <= 5 && surfaceStock > 0">
         Hurry Up! Only {{ surfaceStock }} left!
       </div>
-      <div v-else>
-        Sorry, Surface is Sold Out
-      </div>
+      <div v-else>Sorry, Surface is Sold Out</div>
     </div>
     <div class="purchase-buttons">
-      <button v-if="airpodsStock > 0" v-on:click="airpodsStock -= 1" class="airpods-button">
+      <button
+        v-if="airpodsStock > 0"
+        v-on:click="airpodsStock -= 1"
+        class="airpods-button"
+      >
         Buy Now
       </button>
-      <button v-else v-on:click="airpodsStock -= 1" disabled="true" class="airpods-button-disabled">
+      <button
+        v-else
+        v-on:click="airpodsStock -= 1"
+        disabled="true"
+        class="airpods-button-disabled"
+      >
         Sorry
       </button>
-      <button v-if="macbookStock > 0" v-on:click="macbookStock -= 1" class="macbook-button">
+      <button
+        v-if="macbookStock > 0"
+        v-on:click="macbookStock -= 1"
+        class="macbook-button"
+      >
         Buy Now
       </button>
-      <button v-else v-on:click="macbookStock -= 1" disabled="true" class="macbook-button-disabled">
+      <button
+        v-else
+        v-on:click="macbookStock -= 1"
+        disabled="true"
+        class="macbook-button-disabled"
+      >
         Sorry
       </button>
-      <button v-if="iphoneStock > 0" v-on:click="iphoneStock -= 1" class="iphone-button">
+      <button
+        v-if="iphoneStock > 0"
+        v-on:click="iphoneStock -= 1"
+        class="iphone-button"
+      >
         Buy Now
       </button>
-      <button v-else v-on:click="iphoneStock -= 1" disabled="true" class="iphone-button-disabled">
+      <button
+        v-else
+        v-on:click="iphoneStock -= 1"
+        disabled="true"
+        class="iphone-button-disabled"
+      >
         Sorry
       </button>
-      <button v-if="surfaceStock > 0" v-on:click="surfaceStock -= 1" class="surface-button">
+      <button
+        v-if="surfaceStock > 0"
+        v-on:click="surfaceStock -= 1"
+        class="surface-button"
+      >
         Buy Now
       </button>
-      <button v-else v-on:click="surfaceStock -= 1" disabled="true" class="surface-button-disabled">
+      <button
+        v-else
+        v-on:click="surfaceStock -= 1"
+        disabled="true"
+        class="surface-button-disabled"
+      >
         Sorry
       </button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
-    return({
+    return {
       airpodsStock: 2,
       macbookStock: 9,
       iphoneStock: 4,
@@ -108,43 +183,39 @@ export default {
       surfaceOpacity: false,
       halfOpacity: "50%",
       fullOpacity: "100",
-    })
+    };
   },
-  methods:{
-    opacityAirpods(){
-      if(this.airpodsStock > 0){
+  methods: {
+    opacityAirpods() {
+      if (this.airpodsStock > 0) {
         this.airpodsOpacity = false;
-      }
-      else{
+      } else {
         this.airpodsOpacity = true;
       }
     },
-    opacityMacbook(){
-      if(this.macbookStock > 0){
+    opacityMacbook() {
+      if (this.macbookStock > 0) {
         this.macbookOpacity = false;
-      }
-      else{
+      } else {
         this.macbookOpacity = true;
       }
     },
-    opacityIphone(){
-      if(this.iphoneStock > 0){
+    opacityIphone() {
+      if (this.iphoneStock > 0) {
         this.iphoneOpacity = false;
-      }
-      else{
+      } else {
         this.iphoneOpacity = true;
       }
     },
-    opacitySurface(){
-      if(this.surfaceStock > 0){
+    opacitySurface() {
+      if (this.surfaceStock > 0) {
         this.surfaceOpacity = false;
-      }
-      else{
+      } else {
         this.surfaceOpacity = true;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -164,12 +235,12 @@ a {
   color: #42b983;
 }
 
-.product-page{
+.product-page {
   display: flex;
   justify-content: space-evenly;
 }
 
-.airpods{
+.airpods {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,11 +248,11 @@ a {
   width: 80px;
 }
 
-.airpods-image{
+.airpods-image {
   height: 20vh;
 }
 
-.macbook{
+.macbook {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,11 +260,11 @@ a {
   width: 80px;
 }
 
-.macbook-image{
+.macbook-image {
   height: 20vh;
 }
 
-.iphone{
+.iphone {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,11 +272,11 @@ a {
   width: 80px;
 }
 
-.iphone-image{
+.iphone-image {
   height: 20vh;
 }
 
-.surface{
+.surface {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,21 +284,21 @@ a {
   width: 80px;
 }
 
-.surface-image{
+.surface-image {
   height: 20vh;
 }
 
-.stock-amount{
+.stock-amount {
   display: flex;
   justify-content: space-evenly;
 }
 
-.purchase-buttons{
+.purchase-buttons {
   display: flex;
   justify-content: space-evenly;
 }
 
-.airpods-button{
+.airpods-button {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;
@@ -236,7 +307,7 @@ a {
   font-weight: 700;
 }
 
-.macbook-button{
+.macbook-button {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;
@@ -245,7 +316,7 @@ a {
   font-weight: 700;
 }
 
-.iphone-button{
+.iphone-button {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;
@@ -254,7 +325,7 @@ a {
   font-weight: 700;
 }
 
-.surface-button{
+.surface-button {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;
@@ -263,7 +334,7 @@ a {
   font-weight: bolder;
 }
 
-.airpods-button-disabled{
+.airpods-button-disabled {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;
@@ -272,7 +343,7 @@ a {
   font-weight: 700;
 }
 
-.macbook-button-disabled{
+.macbook-button-disabled {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;
@@ -281,7 +352,7 @@ a {
   font-weight: 700;
 }
 
-.iphone-button-disabled{
+.iphone-button-disabled {
   height: 7.5vh;
   width: 7.5vw;
   border-radius: 28px;

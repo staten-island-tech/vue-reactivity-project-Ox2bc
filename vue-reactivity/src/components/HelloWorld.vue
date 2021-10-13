@@ -1,7 +1,7 @@
 <template>
-  <section class="hello">
-    <div class="product-page">
-      <div class="airpods">
+  <section class="main-sect">
+    <section class="product-page">
+      <div class="airpods-div">
         <img
           v-if="(airpodsOpacity = false)"
           :style="{ opacity: fullOpacity }"
@@ -16,8 +16,33 @@
           src="../assets/airpods-1.png"
           alt=""
         />
+        <main v-if="airpodsStock > 5" class="airpods-stock">
+          Running Low! Only {{ airpodsStock }} left!
+        </main>
+        <main
+          v-else-if="airpodsStock <= 5 && airpodsStock > 0"
+          class="airpods-stock"
+        >
+          Hurry Up! Only {{ airpodsStock }} left!
+        </main>
+        <p v-else class="airpods-stock">Sorry, Airpods are Sold Out</p>
+        <button
+          v-if="airpodsStock > 0"
+          v-on:click="airpodsStock -= 1"
+          class="airpods-button"
+        >
+          <p>Buy Now</p>
+        </button>
+        <button
+          v-else
+          v-on:click="airpodsStock -= 1"
+          disabled="true"
+          class="airpods-button-disabled"
+        >
+          <p>Sorry</p>
+        </button>
       </div>
-      <div class="macbook">
+      <div class="macbook-div">
         <img
           v-if="(macbookOpacity = false)"
           :style="{ opacity: fullOpacity }"
@@ -32,8 +57,33 @@
           src="../assets/macbook-1.png"
           alt=""
         />
+        <main v-if="macbookStock > 5" class="macbook-stock">
+          Running Low! Only {{ macbookStock }} left!
+        </main>
+        <main
+          v-else-if="macbookStock <= 5 && macbookStock > 0"
+          class="macbook-stock"
+        >
+          Hurry Up! Only {{ macbookStock }} left!
+        </main>
+        <p class="macbook-stock" v-else>Sorry, Macbook is Sold Out</p>
+        <button
+          v-if="macbookStock > 0"
+          v-on:click="macbookStock -= 1"
+          class="macbook-button"
+        >
+          Buy Now
+        </button>
+        <button
+          v-else
+          v-on:click="macbookStock -= 1"
+          disabled="true"
+          class="macbook-button-disabled"
+        >
+          Sorry
+        </button>
       </div>
-      <div class="iphone">
+      <div class="iphone-div">
         <img
           v-if="(iphoneOpacity = false)"
           :style="{ opacity: fullOpacity }"
@@ -48,8 +98,30 @@
           src="../assets/iphone-1.png"
           alt=""
         />
+        <main v-if="iphoneStock > 5" class="iphone-stock">
+          Running Low! Only {{ iphoneStock }} left!
+        </main>
+        <main v-else-if="iphoneStock <= 5 && iphoneStock > 0">
+          Hurry Up! Only {{ iphoneStock }} left!
+        </main>
+        <p v-else>Sorry, iPhone is Sold Out</p>
+        <button
+          v-if="iphoneStock > 0"
+          v-on:click="iphoneStock -= 1"
+          class="iphone-button"
+        >
+          Buy Now
+        </button>
+        <button
+          v-else
+          v-on:click="iphoneStock -= 1"
+          disabled="true"
+          class="iphone-button-disabled"
+        >
+          Sorry
+        </button>
       </div>
-      <div class="surface">
+      <div class="surface-div">
         <img
           v-if="(surfaceOpacity = false)"
           :style="{ opacity: fullOpacity }"
@@ -64,104 +136,30 @@
           src="../assets/surface-1.png"
           alt=""
         />
+        <main v-if="surfaceStock > 5" class="surface-stock">
+          Running Low! Only {{ surfaceStock }} left!
+        </main>
+        <main v-else-if="surfaceStock <= 5 && surfaceStock > 0">
+          Hurry Up! Only {{ surfaceStock }} left!
+        </main>
+        <p v-else>Sorry, Surface is Sold Out</p>
+        <button
+          v-if="surfaceStock > 0"
+          v-on:click="surfaceStock -= 1"
+          class="surface-button"
+        >
+          Buy Now
+        </button>
+        <button
+          v-else
+          v-on:click="surfaceStock -= 1"
+          disabled="true"
+          class="surface-button-disabled"
+        >
+          Sorry
+        </button>
       </div>
-    </div>
-    <div class="stock-amount">
-      <!-- Airpods -->
-      <div v-if="airpodsStock > 5" class="airpods-stock">
-        Running Low! Only {{ airpodsStock }} left!
-      </div>
-      <div v-else-if="airpodsStock <= 5 && airpodsStock > 0">
-        Hurry Up! Only {{ airpodsStock }} left!
-      </div>
-      <div v-else>Sorry, Airpods are Sold Out</div>
-      <!-- Macbook -->
-      <div v-if="macbookStock > 5" class="macbook-stock">
-        Running Low! Only {{ macbookStock }} left!
-      </div>
-      <div v-else-if="macbookStock <= 5 && macbookStock > 0">
-        Hurry Up! Only {{ macbookStock }} left!
-      </div>
-      <div v-else>Sorry, Macbook is Sold Out</div>
-      <!-- iPhone -->
-      <div v-if="iphoneStock > 5" class="iphone-stock">
-        Running Low! Only {{ iphoneStock }} left!
-      </div>
-      <div v-else-if="iphoneStock <= 5 && iphoneStock > 0">
-        Hurry Up! Only {{ iphoneStock }} left!
-      </div>
-      <div v-else>Sorry, iPhone is Sold Out</div>
-      <!-- Surface -->
-      <div v-if="surfaceStock > 5" class="surface-stock">
-        Running Low! Only {{ surfaceStock }} left!
-      </div>
-      <div v-else-if="surfaceStock <= 5 && surfaceStock > 0">
-        Hurry Up! Only {{ surfaceStock }} left!
-      </div>
-      <div v-else>Sorry, Surface is Sold Out</div>
-    </div>
-    <div class="purchase-buttons">
-      <button
-        v-if="airpodsStock > 0"
-        v-on:click="airpodsStock -= 1"
-        class="airpods-button"
-      >
-        Buy Now
-      </button>
-      <button
-        v-else
-        v-on:click="airpodsStock -= 1"
-        disabled="true"
-        class="airpods-button-disabled"
-      >
-        Sorry
-      </button>
-      <button
-        v-if="macbookStock > 0"
-        v-on:click="macbookStock -= 1"
-        class="macbook-button"
-      >
-        Buy Now
-      </button>
-      <button
-        v-else
-        v-on:click="macbookStock -= 1"
-        disabled="true"
-        class="macbook-button-disabled"
-      >
-        Sorry
-      </button>
-      <button
-        v-if="iphoneStock > 0"
-        v-on:click="iphoneStock -= 1"
-        class="iphone-button"
-      >
-        Buy Now
-      </button>
-      <button
-        v-else
-        v-on:click="iphoneStock -= 1"
-        disabled="true"
-        class="iphone-button-disabled"
-      >
-        Sorry
-      </button>
-      <button
-        v-if="surfaceStock > 0"
-        v-on:click="surfaceStock -= 1"
-        class="surface-button"
-      >
-        Buy Now
-      </button>
-      <button
-        v-else
-        v-on:click="surfaceStock -= 1"
-        disabled="true"
-        class="surface-button-disabled"
-      >
-        Sorry
-      </button>
-    </div>
+    </section>
   </section>
 </template>
 

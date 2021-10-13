@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">{{ProductPage}}</router-link> |
+      <router-link to="/">{{ ProductPage }}</router-link> |
       <router-link to="/about">{{ Wishlist }}</router-link>
-
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -19,7 +18,9 @@
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 7.5vh;
+  padding-bottom: 12.5vh;
+  font-size: 1.25rem;
 
   a {
     font-weight: bold;
@@ -31,7 +32,7 @@
   }
 }
 
-.cart-logo{
+.cart-logo {
   height: 3vh;
   width: 3vh;
 }
@@ -41,9 +42,10 @@
 export default {
   el: "#app",
   data() {
-    return({
+    return {
       ProductPage: "Product Page",
-      Wishlist: "Wishlist"
-  });
-}}
+      Wishlist: "Wishlist",
+    };
+  },
+};
 </script>

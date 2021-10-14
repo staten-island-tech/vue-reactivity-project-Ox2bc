@@ -165,7 +165,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "productPage",
   props: {
     msg: String,
   },
@@ -368,5 +368,3 @@ a {
   font-weight: 700;
 }
 </style>
-
-

@@ -1,9 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">{{ ProductPage }}</router-link> |
-      <router-link to="/about">{{ Wishlist }}</router-link>
-    </div>
+    <section id="nav">
+      <main class="nav-bar">
+        <router-link to="/">{{ ProductPage }}</router-link>
+        <router-link to="/about">{{ Wishlist }}</router-link>
+      </main>
+      <main
+        class="language-button"
+        v-on:click="this.langRu = true"
+        v-bind:langRu="true"
+      >
+        <button>Ru</button>
+      </main>
+      <main
+        class="language-button"
+        v-on:click="this.langRu = false"
+        v-bind:langRu="false"
+      >
+        <button>En</button>
+      </main>
+    </section>
     <router-view />
   </div>
 </template>
@@ -21,6 +37,8 @@
   padding-top: 7.5vh;
   padding-bottom: 12.5vh;
   font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
 
   a {
     font-weight: bold;
@@ -32,19 +50,29 @@
   }
 }
 
-.cart-logo {
-  height: 3vh;
-  width: 3vh;
+.nav-bar {
+  width: 25vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.language-button {
+  width: 10vw;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
 
 <script>
 export default {
   el: "#app",
+  props: ["langRu"],
   data() {
+    //var tempLang = false;
     return {
       ProductPage: "Product Page",
       Wishlist: "Wishlist",
+      //langRu: this.tempLang,
     };
   },
 };

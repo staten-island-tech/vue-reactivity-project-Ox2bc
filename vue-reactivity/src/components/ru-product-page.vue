@@ -17,21 +17,23 @@
           alt=""
         />
         <main v-if="airpodsStock > 5" class="airpods-stock">
-          Running Low! Only {{ airpodsStock }} left!
+          На исходе! Осталось всего {{ airpodsStock }}
         </main>
         <main
           v-else-if="airpodsStock <= 5 && airpodsStock > 0"
           class="airpods-stock"
         >
-          Hurry Up! Only {{ airpodsStock }} left!
+          Торопиться! Tолько {{ airpodsStock }} oсталось!
         </main>
-        <p v-else class="airpods-stock">Sorry, Airpods are Sold Out</p>
+        <p v-else class="airpods-stock">
+          Извините, Airpods полностью распродан
+        </p>
         <button
           v-if="airpodsStock > 0"
           v-on:click="airpodsStock -= 1"
           class="airpods-button"
         >
-          <p>Buy Now</p>
+          <p>Купить сейчас</p>
         </button>
         <button
           v-else
@@ -39,7 +41,7 @@
           disabled="true"
           class="airpods-button-disabled"
         >
-          <p>Sorry</p>
+          <p>Извините</p>
         </button>
       </div>
       <div class="macbook-div">
@@ -58,21 +60,23 @@
           alt=""
         />
         <main v-if="macbookStock > 5" class="macbook-stock">
-          Running Low! Only {{ macbookStock }} left!
+          На исходе! Осталось всего {{ macbookStock }}
         </main>
         <main
           v-else-if="macbookStock <= 5 && macbookStock > 0"
           class="macbook-stock"
         >
-          Hurry Up! Only {{ macbookStock }} left!
+          Торопиться! Tолько {{ macbookStock }} oсталось!
         </main>
-        <p class="macbook-stock" v-else>Sorry, Macbook is Sold Out</p>
+        <p class="macbook-stock" v-else>
+          Извините, Macbook полностью распродан
+        </p>
         <button
           v-if="macbookStock > 0"
           v-on:click="macbookStock -= 1"
           class="macbook-button"
         >
-          Buy Now
+          <p>Купить сейчас</p>
         </button>
         <button
           v-else
@@ -80,7 +84,7 @@
           disabled="true"
           class="macbook-button-disabled"
         >
-          Sorry
+          Извините
         </button>
       </div>
       <div class="iphone-div">
@@ -99,18 +103,18 @@
           alt=""
         />
         <main v-if="iphoneStock > 5" class="iphone-stock">
-          Running Low! Only {{ iphoneStock }} left!
+          На исходе! Осталось всего {{ iphoneStock }}
         </main>
         <main v-else-if="iphoneStock <= 5 && iphoneStock > 0">
-          Hurry Up! Only {{ iphoneStock }} left!
+          Торопиться! Tолько {{ iphoneStock }} oсталось!
         </main>
-        <p v-else>Sorry, iPhone is Sold Out</p>
+        <p v-else class="iphone-stock">Извините, iPhone полностью распродан</p>
         <button
           v-if="iphoneStock > 0"
           v-on:click="iphoneStock -= 1"
           class="iphone-button"
         >
-          Buy Now
+          <p>Купить сейчас</p>
         </button>
         <button
           v-else
@@ -118,7 +122,7 @@
           disabled="true"
           class="iphone-button-disabled"
         >
-          Sorry
+          Извините
         </button>
       </div>
       <div class="surface-div">
@@ -137,18 +141,20 @@
           alt=""
         />
         <main v-if="surfaceStock > 5" class="surface-stock">
-          Running Low! Only {{ surfaceStock }} left!
+          На исходе! Осталось всего {{ surfaceStock }}
         </main>
         <main v-else-if="surfaceStock <= 5 && surfaceStock > 0">
-          Hurry Up! Only {{ surfaceStock }} left!
+          Торопиться! Tолько {{ surfaceStock }} oсталось!
         </main>
-        <p v-else>Sorry, Surface is Sold Out</p>
+        <p v-else class="surface-stock">
+          Извините, Surface полностью распродан
+        </p>
         <button
           v-if="surfaceStock > 0"
           v-on:click="surfaceStock -= 1"
           class="surface-button"
         >
-          Buy Now
+          Купить сейчас
         </button>
         <button
           v-else
@@ -156,7 +162,7 @@
           disabled="true"
           class="surface-button-disabled"
         >
-          Sorry
+          Извините
         </button>
       </div>
     </section>
@@ -236,6 +242,23 @@ a {
 .product-page {
   display: flex;
   justify-content: space-evenly;
+  width: 85vw;
+}
+
+.airpods-div {
+  width: 18vw;
+}
+
+.macbook-div {
+  width: 18vw;
+}
+
+.iphone-div {
+  width: 18vw;
+}
+
+.surface-div {
+  width: 18vw;
 }
 
 .airpods {
@@ -297,8 +320,8 @@ a {
 }
 
 .airpods-button {
-  height: 7.5vh;
-  width: 7.5vw;
+  height: 8.5vh;
+  width: 8.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -306,8 +329,8 @@ a {
 }
 
 .macbook-button {
-  height: 7.5vh;
-  width: 7.5vw;
+  height: 8.5vh;
+  width: 8.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -315,8 +338,8 @@ a {
 }
 
 .iphone-button {
-  height: 7.5vh;
-  width: 7.5vw;
+  height: 8.5vh;
+  width: 8.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -324,8 +347,8 @@ a {
 }
 
 .surface-button {
-  height: 7.5vh;
-  width: 7.5vw;
+  height: 8.5vh;
+  width: 8.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;

@@ -5,20 +5,6 @@
         <router-link to="/">{{ ProductPage }}</router-link>
         <router-link to="/about">{{ Wishlist }}</router-link>
       </main>
-      <main
-        class="language-button"
-        v-on:click="this.langRu = true"
-        v-bind:langRu="true"
-      >
-        <button>Ru</button>
-      </main>
-      <main
-        class="language-button"
-        v-on:click="this.langRu = false"
-        v-bind:langRu="false"
-      >
-        <button>En</button>
-      </main>
     </section>
     <router-view />
   </div>
@@ -68,11 +54,9 @@ export default {
   el: "#app",
   props: ["langRu"],
   data() {
-    //var tempLang = false;
     return {
       ProductPage: "Product Page",
       Wishlist: "Wishlist",
-      //langRu: this.tempLang,
     };
   },
 };

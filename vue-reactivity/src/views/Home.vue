@@ -1,17 +1,12 @@
 <template>
   <div class="home">
-    <!-- <main class="language-button" v-on:click="langRu = true">
-      <button>Ru</button>
-    </main>
-    <main
-      class="language-button"
-      v-on:click="langRu = false"    >
-      <button>En</button>
-    </main> -->
     <div v-if="langRu == true">
       <RuProductPage msg="Welcome to Your Vue.js App" />
     </div>
     <div v-else><EnProductPage msg="Welcome to Your Vue.js App" /></div>
+    <main class="language-button" @click="langRu = true">
+      <button @click="changeLang">Change Language to {{ currentLang }}</button>
+    </main>
   </div>
 </template>
 
@@ -28,8 +23,24 @@ export default {
   },
   data() {
     return {
-      //langRu: true,
+      currentLang: "Russian",
+      langRu: false,
+      langRuTwo: false,
     };
+  },
+  methods: {
+    changeLang() {
+      if (this.langRu == false) {
+        this.langRuTwo = true;
+      } else {
+        this.langRuTwo = false;
+      }
+      if (this.langRuTwo == true) {
+        this.currentLang = "English";
+      } else {
+        this.currentLang = "Russian";
+      }
+    },
   },
 };
 </script>

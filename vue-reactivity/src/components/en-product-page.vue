@@ -238,48 +238,40 @@ a {
   justify-content: space-evenly;
 }
 
-.airpods {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.airpods-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .airpods-image {
   height: 20vh;
 }
 
-.macbook {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.macbook-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .macbook-image {
   height: 20vh;
 }
 
-.iphone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.iphone-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .iphone-image {
   height: 20vh;
 }
 
-.surface {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.surface-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .surface-image {

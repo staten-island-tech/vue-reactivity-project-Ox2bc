@@ -242,67 +242,42 @@ a {
 .product-page {
   display: flex;
   justify-content: space-evenly;
-  width: 85vw;
 }
 
 .airpods-div {
-  width: 18vw;
-}
-
-.macbook-div {
-  width: 18vw;
-}
-
-.iphone-div {
-  width: 18vw;
-}
-
-.surface-div {
-  width: 18vw;
-}
-
-.airpods {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .airpods-image {
   height: 20vh;
 }
 
-.macbook {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.macbook-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .macbook-image {
   height: 20vh;
 }
 
-.iphone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.iphone-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .iphone-image {
   height: 20vh;
 }
 
-.surface {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 80px;
+.surface-div {
+  border: 15px solid white;
+  border-bottom: 10vh solid white;
+  outline: 1px solid #42b983;
 }
 
 .surface-image {

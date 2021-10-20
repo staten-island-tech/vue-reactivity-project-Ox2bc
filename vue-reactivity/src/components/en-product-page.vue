@@ -41,6 +41,16 @@
         >
           <p>Sorry</p>
         </button>
+        <main class="airpods-price">
+          <main v-if="airpodsSale == false">
+            <p class="price">$159</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">SALE</p>
+            <p class="sale-normal-price">$159</p>
+            <p class="price">$139</p>
+          </main>
+        </main>
       </div>
       <div class="macbook-div">
         <img
@@ -82,6 +92,16 @@
         >
           Sorry
         </button>
+        <main class="macbook-price">
+          <main v-if="macbookSale == false">
+            <p class="price">$1,599</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">SALE</p>
+            <p class="sale-normal-price">$1,599</p>
+            <p class="price">$1,399</p>
+          </main>
+        </main>
       </div>
       <div class="iphone-div">
         <img
@@ -120,6 +140,16 @@
         >
           Sorry
         </button>
+        <main class="iphone-price">
+          <main v-if="iphoneSale == false">
+            <p class="price">$849</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">SALE</p>
+            <p class="sale-normal-price">$849</p>
+            <p class="price">$699</p>
+          </main>
+        </main>
       </div>
       <div class="surface-div">
         <img
@@ -158,7 +188,23 @@
         >
           Sorry
         </button>
+        <main class="surface-price">
+          <main v-if="surfaceSale == false">
+            <p class="price">$1,100</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">SALE</p>
+            <p class="sale-normal-price">$1,100</p>
+            <p class="price">$715</p>
+          </main>
+        </main>
       </div>
+    </section>
+    <section class="sale-button">
+      <button v-on:click="rndNumb">
+        Click for Random Chance at a Sale!!! <br />
+        Up to 35% OFF
+      </button>
     </section>
   </section>
 </template>
@@ -181,6 +227,10 @@ export default {
       surfaceOpacity: false,
       halfOpacity: "50%",
       fullOpacity: "100",
+      airpodsSale: false,
+      macbookSale: false,
+      iphoneSale: false,
+      surfaceSale: false,
     };
   },
   methods: {
@@ -211,6 +261,36 @@ export default {
       } else {
         this.surfaceOpacity = true;
       }
+    },
+    rndNumb() {
+      var randairpods = Math.floor(Math.random() * 100);
+      if (randairpods < 10) {
+        this.airpodsSale = true;
+      } else {
+        this.airpodsSale = false;
+      }
+      console.log(this.airpodsSale);
+      var randmacbook = Math.floor(Math.random() * 100);
+      if (randmacbook < 10) {
+        this.macbookSale = true;
+      } else {
+        this.macbookSale = false;
+      }
+      console.log(this.macbookSale);
+      var randiphone = Math.floor(Math.random() * 100);
+      if (randiphone < 10) {
+        this.iphoneSale = true;
+      } else {
+        this.iphoneSale = false;
+      }
+      console.log(this.iphoneSale);
+      var randsurface = Math.floor(Math.random() * 100);
+      if (randsurface < 10) {
+        this.surfaceSale = true;
+      } else {
+        this.surfaceSale = false;
+      }
+      console.log(this.surfaceSale);
     },
   },
 };
@@ -358,6 +438,25 @@ a {
   color: white;
   background: #3c94c3;
   font-weight: 700;
+}
+
+.sale-sign {
+  color: red;
+  font-weight: 900;
+  padding: 0%;
+  margin: 5px auto;
+}
+
+.sale-normal-price {
+  text-decoration: line-through;
+  color: red;
+  margin: 2.5px auto;
+  font-weight: 550;
+}
+
+.price {
+  margin: 5px auto;
+  font-weight: 550;
 }
 </style>
 

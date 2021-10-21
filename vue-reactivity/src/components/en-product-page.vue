@@ -263,28 +263,47 @@ export default {
       }
     },
     rndNumb() {
-      var randairpods = Math.floor(Math.random() * 100);
+      var d = new Date();
+      var day = d.getDay();
+      console.log(day);
+      if (day <= 1) {
+        var randairpods = Math.floor(Math.random() * 100);
+      } else {
+        var randairpods = Math.floor(Math.random() * 200);
+      }
       if (randairpods < 10) {
         this.airpodsSale = true;
       } else {
         this.airpodsSale = false;
       }
       console.log(this.airpodsSale);
-      var randmacbook = Math.floor(Math.random() * 100);
+      if (2 <= day <= 3) {
+        var randmacbook = Math.floor(Math.random() * 100);
+      } else {
+        var randmacbook = Math.floor(Math.random() * 200);
+      }
       if (randmacbook < 10) {
         this.macbookSale = true;
       } else {
         this.macbookSale = false;
       }
       console.log(this.macbookSale);
-      var randiphone = Math.floor(Math.random() * 100);
+      if (3 <= day <= 4) {
+        var randiphone = Math.floor(Math.random() * 100);
+      } else {
+        var randiphone = Math.floor(Math.random() * 200);
+      }
       if (randiphone < 10) {
         this.iphoneSale = true;
       } else {
         this.iphoneSale = false;
       }
       console.log(this.iphoneSale);
-      var randsurface = Math.floor(Math.random() * 100);
+      if (5 <= day <= 6) {
+        var randsurface = Math.floor(Math.random() * 100);
+      } else {
+        var randsurface = Math.floor(Math.random() * 200);
+      }
       if (randsurface < 10) {
         this.surfaceSale = true;
       } else {
@@ -319,6 +338,7 @@ a {
 }
 
 .airpods-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -329,6 +349,7 @@ a {
 }
 
 .macbook-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -339,6 +360,7 @@ a {
 }
 
 .iphone-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -349,6 +371,7 @@ a {
 }
 
 .surface-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;

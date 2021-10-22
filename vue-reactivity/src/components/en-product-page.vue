@@ -269,7 +269,7 @@ export default {
       if (day <= 1) {
         var randairpods = Math.floor(Math.random() * 100);
       } else {
-        var randairpods = Math.floor(Math.random() * 200);
+        randairpods = Math.floor(Math.random() * 200);
       }
       if (randairpods < 10) {
         this.airpodsSale = true;
@@ -280,7 +280,7 @@ export default {
       if (2 <= day <= 3) {
         var randmacbook = Math.floor(Math.random() * 100);
       } else {
-        var randmacbook = Math.floor(Math.random() * 200);
+        randmacbook = Math.floor(Math.random() * 200);
       }
       if (randmacbook < 10) {
         this.macbookSale = true;
@@ -291,7 +291,7 @@ export default {
       if (3 <= day <= 4) {
         var randiphone = Math.floor(Math.random() * 100);
       } else {
-        var randiphone = Math.floor(Math.random() * 200);
+        randiphone = Math.floor(Math.random() * 200);
       }
       if (randiphone < 10) {
         this.iphoneSale = true;
@@ -302,7 +302,7 @@ export default {
       if (5 <= day <= 6) {
         var randsurface = Math.floor(Math.random() * 100);
       } else {
-        var randsurface = Math.floor(Math.random() * 200);
+        randsurface = Math.floor(Math.random() * 200);
       }
       if (randsurface < 10) {
         this.surfaceSale = true;

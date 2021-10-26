@@ -200,11 +200,8 @@
         </main>
       </div>
     </section>
-    <section class="sale-button">
-      <button v-on:click="rndNumb">
-        Click for Random Chance at a Sale!!! <br />
-        Up to 35% OFF
-      </button>
+    <section>
+      <button class="sale-button" v-on:click="rndNumb"></button>
     </section>
   </section>
 </template>
@@ -480,6 +477,40 @@ a {
 .price {
   margin: 5px auto;
   font-weight: 550;
+}
+
+.sale-button {
+  border: 2px solid #42b983;
+  filter: hue-rotate(90deg);
+  height: 80px;
+  width: 200px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  margin: 25px;
+
+  &::after {
+    content: "Click for Random Chance at a Sale! Up to 35% OFF";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    color: #42b983;
+    transition: all 0.1s linear;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      animation: star 1.3s linear infinite;
+    }
+
+    &::after {
+      content: "Click for Random Chance at a Sale! Up to 35% OFF";
+      filter: brightness(80%);
+    }
+  }
 }
 </style>
 

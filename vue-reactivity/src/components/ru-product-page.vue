@@ -33,7 +33,7 @@
           v-on:click="airpodsStock -= 1"
           class="airpods-button"
         >
-          <p>Купить сейчас</p>
+          <p>Купить сейчаc</p>
         </button>
         <button
           v-else
@@ -41,8 +41,18 @@
           disabled="true"
           class="airpods-button-disabled"
         >
-          <p>Извините</p>
+          <p>Извинитe</p>
         </button>
+        <main class="airpods-price">
+          <main v-if="airpodsSale == false">
+            <p class="price">$159</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">РАСПРОДАЖА</p>
+            <p class="sale-normal-price">$159</p>
+            <p class="price">$139</p>
+          </main>
+        </main>
       </div>
       <div class="macbook-div">
         <img
@@ -76,7 +86,7 @@
           v-on:click="macbookStock -= 1"
           class="macbook-button"
         >
-          <p>Купить сейчас</p>
+          Купить сейчаc
         </button>
         <button
           v-else
@@ -86,6 +96,16 @@
         >
           Извините
         </button>
+        <main class="macbook-price">
+          <main v-if="macbookSale == false">
+            <p class="price">$1,599</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">РАСПРОДАЖА</p>
+            <p class="sale-normal-price">$1,599</p>
+            <p class="price">$1,399</p>
+          </main>
+        </main>
       </div>
       <div class="iphone-div">
         <img
@@ -108,13 +128,13 @@
         <main v-else-if="iphoneStock <= 5 && iphoneStock > 0">
           Торопиться! Tолько {{ iphoneStock }} oсталось!
         </main>
-        <p v-else class="iphone-stock">Извините, iPhone полностью распродан</p>
+        <p v-else>Извините, iPhone полностью распродан</p>
         <button
           v-if="iphoneStock > 0"
           v-on:click="iphoneStock -= 1"
           class="iphone-button"
         >
-          <p>Купить сейчас</p>
+          Купить сейчас
         </button>
         <button
           v-else
@@ -124,6 +144,16 @@
         >
           Извините
         </button>
+        <main class="iphone-price">
+          <main v-if="iphoneSale == false">
+            <p class="price">$849</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">РАСПРОДАЖА</p>
+            <p class="sale-normal-price">$849</p>
+            <p class="price">$699</p>
+          </main>
+        </main>
       </div>
       <div class="surface-div">
         <img
@@ -146,9 +176,7 @@
         <main v-else-if="surfaceStock <= 5 && surfaceStock > 0">
           Торопиться! Tолько {{ surfaceStock }} oсталось!
         </main>
-        <p v-else class="surface-stock">
-          Извините, Surface полностью распродан
-        </p>
+        <p v-else>Извините, Surface полностью распродан</p>
         <button
           v-if="surfaceStock > 0"
           v-on:click="surfaceStock -= 1"
@@ -164,7 +192,20 @@
         >
           Извините
         </button>
+        <main class="surface-price">
+          <main v-if="surfaceSale == false">
+            <p class="price">$1,100</p>
+          </main>
+          <main v-else>
+            <p class="sale-sign">РАСПРОДАЖА</p>
+            <p class="sale-normal-price">$1,100</p>
+            <p class="price">$715</p>
+          </main>
+        </main>
       </div>
+    </section>
+    <section>
+      <button class="sale-button" v-on:click="rndNumb"></button>
     </section>
   </section>
 </template>
@@ -187,6 +228,10 @@ export default {
       surfaceOpacity: false,
       halfOpacity: "50%",
       fullOpacity: "100",
+      airpodsSale: false,
+      macbookSale: false,
+      iphoneSale: false,
+      surfaceSale: false,
     };
   },
   methods: {
@@ -218,6 +263,55 @@ export default {
         this.surfaceOpacity = true;
       }
     },
+    rndNumb() {
+      var d = new Date();
+      var day = d.getDay();
+      console.log(day);
+      if (day <= 1) {
+        var randairpods = Math.floor(Math.random() * 100);
+      } else {
+        randairpods = Math.floor(Math.random() * 200);
+      }
+      if (randairpods < 10) {
+        this.airpodsSale = true;
+      } else {
+        this.airpodsSale = false;
+      }
+      console.log(this.airpodsSale);
+      if (2 <= day <= 3) {
+        var randmacbook = Math.floor(Math.random() * 100);
+      } else {
+        randmacbook = Math.floor(Math.random() * 200);
+      }
+      if (randmacbook < 10) {
+        this.macbookSale = true;
+      } else {
+        this.macbookSale = false;
+      }
+      console.log(this.macbookSale);
+      if (3 <= day <= 4) {
+        var randiphone = Math.floor(Math.random() * 100);
+      } else {
+        randiphone = Math.floor(Math.random() * 200);
+      }
+      if (randiphone < 10) {
+        this.iphoneSale = true;
+      } else {
+        this.iphoneSale = false;
+      }
+      console.log(this.iphoneSale);
+      if (5 <= day <= 6) {
+        var randsurface = Math.floor(Math.random() * 100);
+      } else {
+        randsurface = Math.floor(Math.random() * 200);
+      }
+      if (randsurface < 10) {
+        this.surfaceSale = true;
+      } else {
+        this.surfaceSale = false;
+      }
+      console.log(this.surfaceSale);
+    },
   },
 };
 </script>
@@ -245,6 +339,7 @@ a {
 }
 
 .airpods-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -255,6 +350,7 @@ a {
 }
 
 .macbook-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -265,6 +361,7 @@ a {
 }
 
 .iphone-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -275,6 +372,7 @@ a {
 }
 
 .surface-div {
+  max-height: 32.5vh;
   border: 15px solid white;
   border-bottom: 10vh solid white;
   outline: 1px solid #42b983;
@@ -295,8 +393,8 @@ a {
 }
 
 .airpods-button {
-  height: 8.5vh;
-  width: 8.5vw;
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -304,8 +402,8 @@ a {
 }
 
 .macbook-button {
-  height: 8.5vh;
-  width: 8.5vw;
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -313,8 +411,8 @@ a {
 }
 
 .iphone-button {
-  height: 8.5vh;
-  width: 8.5vw;
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -322,8 +420,8 @@ a {
 }
 
 .surface-button {
-  height: 8.5vh;
-  width: 8.5vw;
+  height: 7.5vh;
+  width: 7.5vw;
   border-radius: 28px;
   color: white;
   background: #3c94c3;
@@ -365,4 +463,61 @@ a {
   background: #3c94c3;
   font-weight: 700;
 }
+
+.sale-sign {
+  color: red;
+  font-weight: 900;
+  padding: 0%;
+  margin: 5px auto;
+}
+
+.sale-normal-price {
+  text-decoration: line-through;
+  color: red;
+  margin: 2.5px auto;
+  font-weight: 550;
+}
+
+.price {
+  margin: 5px auto;
+  font-weight: 550;
+}
+
+.sale-button {
+  border: 2px solid #42b983;
+  height: 80px;
+  width: 295px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  margin: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  &::after {
+    content: "Нажмите, чтобы увидеть случайную распродажу! СКИДКА до 35%";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    color: #42b983;
+    transition: all 0.1s linear;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      animation: star 1.3s linear infinite;
+    }
+
+    &::after {
+      content: "Нажмите, чтобы увидеть случайную распродажу! СКИДКА до 35%";
+      color: #42b3;
+      filter: saturate(500%);
+    }
+  }
+}
 </style>
+
+

@@ -481,14 +481,15 @@ a {
 
 .sale-button {
   border: 2px solid #42b983;
-  filter: hue-rotate(90deg);
   height: 80px;
-  width: 200px;
+  width: 235px;
   border-radius: 4px;
   position: relative;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   margin: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
 
   &::after {
     content: "Click for Random Chance at a Sale! Up to 35% OFF";
@@ -508,7 +509,8 @@ a {
 
     &::after {
       content: "Click for Random Chance at a Sale! Up to 35% OFF";
-      filter: brightness(80%);
+      color: #42b3;
+      filter: saturate(500%);
     }
   }
 }

@@ -58,11 +58,16 @@ export default {
 }
 
 .language-button {
+  display: flex;
+  align-items: center;
   border-radius: 20%;
   height: 6vh;
   opacity: 100%;
   border: none;
   text-align: center;
   width: 7.5vw;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1rem;
 }
 </style>

@@ -53,7 +53,6 @@ export default {
   color: white;
   text-align: center;
   background-color: #42b983;
-  opacity: 80%;
   height: 7.5vh;
 }
 
@@ -62,7 +61,6 @@ export default {
   align-items: center;
   border-radius: 20%;
   height: 6vh;
-  opacity: 100%;
   border: none;
   text-align: center;
   width: 7.5vw;

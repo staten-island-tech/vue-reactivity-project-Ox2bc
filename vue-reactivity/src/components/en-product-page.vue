@@ -503,7 +503,7 @@ a {
 
   &:hover {
     &::before {
-      opacity: 1;
+      // opacity: 1;
       animation: star 1.3s linear infinite;
     }
 
